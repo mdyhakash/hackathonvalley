@@ -177,7 +177,7 @@ const Footer = () => {
 
               <a className="truncate" href="mailto:booking@example.com">
                 {" "}
-                booking@example.com{" "}
+                contact.hackathonvalley@gmail.com{" "}
               </a>
             </div>
 

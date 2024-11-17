@@ -1,10 +1,11 @@
-import React from "react";
-
+import Image from "next/image";
+import Link from "next/link";
+import SearchHackathon from './SearchHackathon';
 const HackathonList = () => {
   const hackathons = [
     {
       title: "Google Chrome Built-in AI Challenge",
-      image: "your-image-url-here",
+      image: "",
       timeLeft: "17 days left",
       location: "Online",
       prize: "$65,000 in prizes",
@@ -12,7 +13,7 @@ const HackathonList = () => {
     },
     {
       title: "Codegeist 2024",
-      image: "your-image-url-here",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png",
       timeLeft: "24 days left",
       location: "Online",
       prize: "$170,000 in prizes",
@@ -20,7 +21,7 @@ const HackathonList = () => {
     },
     {
       title: "Google Photorealistic 3D Maps Challenge",
-      image: "your-image-url-here",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png",
       timeLeft: "4 days left",
       location: "Online",
       prize: "$26,000 in prizes",
@@ -28,7 +29,7 @@ const HackathonList = () => {
     },
     {
       title: "AWS Game Builder Challenge",
-      image: "your-image-url-here",
+      image: "",
       timeLeft: "about 2 months left",
       location: "Online",
       prize: "$80,000 in prizes",
@@ -47,74 +48,79 @@ const HackathonList = () => {
   ];
 
   return (
-    <div className="bg-white py-12">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <>
+    <SearchHackathon/>
+    <div className="bg-gray-50 mt-12 py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Section */}
         <div>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">Hackathons for you</h2>
-            <a
-              href="#"
-              className="text-blue-600 text-sm font-medium hover:underline"
-            >
-              Edit your recommendations &rarr;
-            </a>
+  <div className="flex justify-between items-center mb-8">
+    <h2 className="text-3xl font-extrabold text-gray-800">Hackathons for You</h2>
+    <Link
+      href="/"
+      className="text-blue-600 text-sm font-medium hover:underline"
+    >
+      Edit Recommendations
+    </Link>
+  </div>
+  <div className="space-y-8">
+    {hackathons.map((hackathon, index) => (
+      <div
+        key={index}
+        className="flex items-center bg-white border rounded-lg shadow-lg p-4 hover:shadow-xl transition"
+      >
+        <Image
+          src={hackathon.image}
+          alt={hackathon.title}
+          width={80}
+          height={80}
+          className="h-20 w-20 rounded-lg object-cover border"
+        />
+        <div className="ml-4 flex-1">
+          <h3 className="text-xl font-semibold text-gray-800">
+            {hackathon.title}
+          </h3>
+          <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full">
+              {hackathon.timeLeft}
+            </span>
+            <span className="flex items-center space-x-1">
+              {/* <span className="material-icons text-gray-400">public</span> */}
+              <span>{hackathon.location}</span>
+            </span>
           </div>
-          <div className="space-y-6">
-            {hackathons.map((hackathon, index) => (
-              <div
-                key={index}
-                className="flex items-center border rounded-lg p-4 shadow-sm"
-              >
-                <img
-                  src={hackathon.image}
-                  alt={hackathon.title}
-                  className="h-16 w-16 rounded-lg object-cover"
-                />
-                <div className="ml-4 flex-1">
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {hackathon.title}
-                  </h3>
-                  <div className="mt-1 flex items-center space-x-2 text-sm text-gray-500">
-                    <span className="px-2 py-1 bg-green-100 text-green-800 rounded-md">
-                      {hackathon.timeLeft}
-                    </span>
-                    <span className="flex items-center space-x-1">
-                      <span className="material-icons">public</span>
-                      <span>{hackathon.location}</span>
-                    </span>
-                  </div>
-                  <div className="mt-2 text-sm text-gray-600">
-                    <p>{hackathon.prize}</p>
-                    <p>{hackathon.participants}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mt-3 text-sm text-gray-600 space-y-1">
+            <p>{hackathon.prize}</p>
+            <p>{hackathon.participants}</p>
           </div>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
 
         {/* Right Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Top hackathon themes</h2>
-          <table className="mt-6 w-full border-collapse">
-            <thead>
-              <tr className="text-left text-gray-600 text-sm">
-                <th className="py-2">Theme</th>
-                <th className="py-2">Hackathons</th>
-                <th className="py-2">Total prizes</th>
-                <th className="py-2"></th>
+          <h2 className="text-3xl font-extrabold text-gray-800">Top Hackathon Themes</h2>
+          <table className="mt-6 w-full border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+            <thead className="bg-gray-200 text-gray-700 text-sm">
+              <tr>
+                <th className="py-4 px-4 text-left">Theme</th>
+                <th className="py-4 px-4 text-left">Hackathons</th>
+                <th className="py-4 px-4 text-left">Total Prizes</th>
               </tr>
             </thead>
             <tbody>
               {themes.map((theme, index) => (
-                <tr key={index} className="border-t text-gray-700">
-                  <td className="py-3">{theme.theme}</td>
-                  <td className="py-3">{theme.hackathons}</td>
-                  <td className="py-3">{theme.prizes}</td>
-                  <td className="py-3 text-blue-600 hover:underline cursor-pointer">
-                    &rarr;
-                  </td>
+                <tr
+                  key={index}
+                  className={`border-t ${
+                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                  } hover:bg-[#C2CE3B] transition-all`}
+                >
+                  <td className="py-4 px-4 text-gray-800">{theme.theme}</td>
+                  <td className="py-4 px-4 text-gray-600">{theme.hackathons}</td>
+                  <td className="py-4 px-4 text-gray-600">{theme.prizes}</td>
                 </tr>
               ))}
             </tbody>
@@ -122,6 +128,7 @@ const HackathonList = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
