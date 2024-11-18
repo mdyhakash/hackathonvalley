@@ -142,34 +142,34 @@
 // };
 
 // export default TeamMembers;
-
-import Atik from "@/assets/team/Atik Hasan.jpg"
+import Roshni from "@/assets/team/Afia Mahmud Roshni.jpg";
+import Atik from "@/assets/team/Atik Hasan.jpg";
 import Jetu from "@/assets/team/Kazi Jamil Jetu.jpg";
-import Noushad from "@/assets/team/Md Noushad Jahan Ramim.jpg"; 
+import Pritha from "@/assets/team/Labiba Akram Pritha.jpg";
+import Noushad from "@/assets/team/Md Noushad Jahan Ramim.jpg";
 import Akash from "@/assets/team/Md Y H Akash.jpg";
 import Turag from "@/assets/team/Nafis Iqbal Turag.jpg";
-import Image from "next/image";
 import Shadman from "@/assets/team/Shadman Sarwar.jpg";
-import Pritha from "@/assets/team/Labiba Akram Pritha.jpg";
-import Roshni from "@/assets/team/Afia Mahmud Roshni.jpg";
-
+import Image from "next/image";
+import Link from "next/link";
+import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 const TeamMembers = () => {
   const founders = [
     {
       name: "Md Noushad Jahan Ramim",
       role: "Founder",
       image: Noushad,
-      linkedin: "https://www.linkedin.com/in/your-profile", 
-      github: "https://github.com/your-profile", 
-      facebook: "https://www.facebook.com/your-profile", 
+      linkedin: "https://www.linkedin.com/in/md-noushad-jahan-ramim-4b57372a5/", 
+      github: "https://github.com/noushad25", 
+      facebook: "https://www.facebook.com/profile.php?id=100084776900251", 
     },
     {
       name: "Md Y H Akash",
       role: "Founder",
       image: Akash,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "https://www.linkedin.com/in/mdyhakash/",
+      github: "https://github.com/mdyhakash",
+      facebook: "https://www.facebook.com/mdyhakash",
     },
   ];
 
@@ -178,25 +178,25 @@ const TeamMembers = () => {
       name: "Atik Hasan",
       role: "Co-Founder",
       image: Atik,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "https://www.linkedin.com/in/atik65/",
+      github: "https://github.com/atik65",
+      facebook: "https://www.facebook.com/dev.atik.hasan",
     },
     {
       name: "Kazi Jamil Jetu",
       role: "Co-Founder",
       image: Jetu,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "#",
+      github: "#",
+      facebook: "https://www.facebook.com/jamil.jetu",
     },
     {
       name: "Nafis Iqbal Turag",
       role: "Co-Founder",
       image: Turag,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "#",
+      github: "#",
+      facebook: "https://www.facebook.com/nafis.iqbal.turag",
     },
   ];
 
@@ -205,25 +205,25 @@ const TeamMembers = () => {
       name: "Shadman Sarwar",
       role: "Marketing Lead",
       image: Shadman,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "#",
+      github: "#",
+      facebook: "https://www.facebook.com/shadmanbigboss",
     },
     {
       name: "Labiba Akram Pritha",
       role: "Marketing Lead",
       image: Pritha,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "#",
+      github: "#",
+      facebook: "#",
     },
     {
       name: "Afia Mahmud Roshni",
       role: "Marketing Lead",
       image: Roshni,
-      linkedin: "https://www.linkedin.com/in/your-profile",
-      github: "https://github.com/your-profile",
-      facebook: "https://www.facebook.com/your-profile",
+      linkedin: "#",
+      github: "#",
+      facebook: "#",
     },
   ];
 
@@ -256,31 +256,31 @@ const TeamMembers = () => {
               <p className="text-lg text-green-500">{member.role}</p>
 
               {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a
+              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
+                <Link
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-4 text-blue-600 text-5xl hover:text-blue-800"
                 >
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a
+                  <FaLinkedin />
+                </Link>
+                <Link
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-gray-900 text-2xl hover:text-gray-700"
+                  className="mx-4 text-gray-900 text-5xl hover:text-gray-700"
                 >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
+                  <FaGithub />
+                </Link>
+                <Link
                   href={member.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-4 text-blue-600 text-5xl hover:text-blue-800"
                 >
-                  <i className="fab fa-facebook"></i>
-                </a>
+                   <FaFacebook />
+                </Link>
               </div>
             </div>
           ))}
@@ -308,31 +308,31 @@ const TeamMembers = () => {
               <p className="text-lg text-green-500">{member.role}</p>
 
               {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a
+              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
+                <Link
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
                 >
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a
+                  <FaLinkedin />
+                </Link>
+                <Link
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-gray-900 text-2xl hover:text-gray-700"
+                  className="mx-3 text-gray-900 text-4xl hover:text-gray-700"
                 >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
+                  <FaGithub />
+                </Link>
+                <Link
                   href={member.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
                 >
-                  <i className="fab fa-facebook"></i>
-                </a>
+                   <FaFacebook />
+                </Link>
               </div>
             </div>
           ))}
@@ -360,31 +360,31 @@ const TeamMembers = () => {
               <p className="text-lg text-green-500">{member.role}</p>
 
               {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a
+              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
+                <Link
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
                 >
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a
+                  <FaLinkedin />
+                </Link>
+                <Link
                   href={member.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-gray-900 text-2xl hover:text-gray-700"
+                  className="mx-3 text-gray-900 text-4xl hover:text-gray-700"
                 >
-                  <i className="fab fa-github"></i>
-                </a>
-                <a
+                  <FaGithub />
+                </Link>
+                <Link
                   href={member.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mx-2 text-blue-600 text-2xl hover:text-blue-800"
+                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
                 >
-                  <i className="fab fa-facebook"></i>
-                </a>
+                   <FaFacebook />
+                </Link>
               </div>
             </div>
           ))}
