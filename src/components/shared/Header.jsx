@@ -192,9 +192,9 @@ const Header = () => {
               style={{
                 fontWeight: "bold",
               }}
-              className="text-black font-bold  py-5  flex gap-2 items-center text-sm xl:text-base"
+              className="text-black  font-bold  py-5  flex gap-2 items-center text-sm xl:text-base"
             >
-              <span>{item.title}</span> {item.children && <FaAngleDown />}
+              <span className="py-3 px-2  rounded-lg hover:shadow-md hover:bg-[#C2CE3B] transition duration-300">{item.title}</span> {item.children && <FaAngleDown />}
             </Link>
 
             {subMenuId === item.id && (

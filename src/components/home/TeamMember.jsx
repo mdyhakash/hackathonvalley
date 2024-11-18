@@ -149,9 +149,9 @@ import Noushad from "@/assets/team/Md Noushad Jahan Ramim.jpg";
 import Akash from "@/assets/team/Md Y H Akash.jpg";
 import Turag from "@/assets/team/Nafis Iqbal Turag.jpg";
 import Image from "next/image";
-// import Daniel from "@/assets/team/Daniel.jpg";
-// import Olivia from "@/assets/team/Olivia.jpg";
-// import Ethan from "@/assets/team/Ethan.jpg";
+import Shadman from "@/assets/team/Shadman Sarwar.jpg";
+import Pritha from "@/assets/team/Labiba Akram Pritha.jpg";
+import Roshni from "@/assets/team/Afia Mahmud Roshni.jpg";
 
 const TeamMembers = () => {
   const founders = [
@@ -202,25 +202,25 @@ const TeamMembers = () => {
 
   const others = [
     {
-      name: "Daniel Martinez",
+      name: "Shadman Sarwar",
       role: "Marketing Lead",
-      ///image: Daniel,
+      image: Shadman,
       linkedin: "https://www.linkedin.com/in/your-profile",
       github: "https://github.com/your-profile",
       facebook: "https://www.facebook.com/your-profile",
     },
     {
-      name: "Olivia Garcia",
-      role: "UI/UX Designer",
-      ////image: Olivia,
+      name: "Labiba Akram Pritha",
+      role: "Marketing Lead",
+      image: Pritha,
       linkedin: "https://www.linkedin.com/in/your-profile",
       github: "https://github.com/your-profile",
       facebook: "https://www.facebook.com/your-profile",
     },
     {
-      name: "Ethan Miller",
-      role: "Software Engineer",
-      //image: Ethan,
+      name: "Afia Mahmud Roshni",
+      role: "Marketing Lead",
+      image: Roshni,
       linkedin: "https://www.linkedin.com/in/your-profile",
       github: "https://github.com/your-profile",
       facebook: "https://www.facebook.com/your-profile",
