@@ -5,7 +5,7 @@ const HackathonList = () => {
   const hackathons = [
     {
       title: "Google Chrome Built-in AI Challenge",
-      image: "",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png",
       timeLeft: "17 days left",
       location: "Online",
       prize: "$65,000 in prizes",
@@ -29,7 +29,7 @@ const HackathonList = () => {
     },
     {
       title: "AWS Game Builder Challenge",
-      image: "",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png",
       timeLeft: "about 2 months left",
       location: "Online",
       prize: "$80,000 in prizes",
@@ -74,7 +74,7 @@ const HackathonList = () => {
           alt={hackathon.title}
           width={80}
           height={80}
-          className="h-20 w-20 rounded-lg object-cover border"
+          className="h-20 w-20 rounded-lg object-contain border"
         />
         <div className="ml-4 flex-1">
           <h3 className="text-xl font-semibold text-gray-800">
@@ -115,7 +115,7 @@ const HackathonList = () => {
                 <tr
                   key={index}
                   className={`border-t ${
-                    index % 2 === 0 ? "bg-gray-50" : "bg-white"
+                    index % 2 === 0 ? "bg-green-100" : "bg-green-200"
                   } hover:bg-[#C2CE3B] transition-all`}
                 >
                   <td className="py-4 px-4 text-gray-800">{theme.theme}</td>
