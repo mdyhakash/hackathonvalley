@@ -339,7 +339,7 @@ import { useEffect, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaBars } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
-import logo from "/public/assets/mnm_logo.webp";
+import logo from "@/assets/blacklogo.jpg";
 
 const SearchBar = dynamic(() => import("./SearchBar"), { ssr: false });
 
@@ -376,17 +376,17 @@ const Header = () => {
       onClick={() => handleShowSearchBar(false)}
       className={`transition-all duration-300 ease-linear ${
         isScrolled
-          ? "fixed top-0 z-50 bg-white shadow-md" // Show header with background and shadow after scrolling
+          ? "fixed top-0 z-50 bg-dark text-white shadow-md" // Show header with background and shadow after scrolling
           : "hidden" // Hide header initially
-      } w-full flex justify-between items-center px-5 h-[100px] border-b border-gray-200`}
+      } w-full flex justify-between items-center px-5 h-[100px] border-b border-green-600`}
     >
       <div>
         <Link href="/">
           <Image
             src={logo}
-            className="w-[120px] lg:w-[150px]"
+            className="w-[120px] lg:w-[100px]"
             alt="logo"
-            width={150}
+            width={100}
             height={50}
           />
         </Link>
@@ -397,7 +397,7 @@ const Header = () => {
           <Link
             key={item.id}
             href={item.href}
-            className="py-3 px-4 font-bold rounded-md hover:bg-[#C2CE3B] hover:text-black transition duration-300"
+            className="py-3 px-4 font-bold rounded-md hover:text-green-600 transition duration-300"
           >
             {item.title}
           </Link>
