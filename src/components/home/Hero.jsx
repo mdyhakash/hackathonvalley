@@ -1,82 +1,111 @@
-{/* eslint-disable-next-line react/no-unescaped-entities */}
-import Image from "next/image";
-import heroImage from "@/assets/hero.jpg";
+"use client";
+import { useEffect, useState } from "react";
 
-const HackathonHero = () => {
+const eventsData = [
+  {
+    title: "Upcoming: Google AI Hackathon",
+    description: "Join us to create AI-driven solutions. Big prizes await!",
+    date: "Dec 5, 2024",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png",
+  },
+  {
+    title: "Ongoing: Codegeist 2024",
+    description: "Collaborate with top developers worldwide!",
+    date: "Nov 20, 2024",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  },
+  {
+    title: "Recent: Meta Virtual World Challenge",
+    description: "Shape the future of VR with groundbreaking projects.",
+    date: "Oct 15, 2024",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
+  },
+];
+
+const HeroSlider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Change slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % eventsData.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div
-      className="bg-gray-50"
-      style={{
-        backgroundImage: `url(${heroImage.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="bg-gray-900 bg-opacity-50 py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          {/* Header Section */}
-          <div className="text-center text-white">
-            <h1 className="text-4xl font-bold">
-              Hackathon Valley
-            </h1>
-            <p className="mt-4 text-lg">
-              Empowering innovation and technology, one hackathon at a time
-            </p>
+    <div className="relative bg-dark text-white py-20 overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <h1 className="text-4xl sm:text-5xl font-semibold mb-4 text-center text-green-400 animate__animated animate__fadeIn">
+          Welcome to Our Hackathon Valley
+        </h1>
+        <p className="text-lg sm:text-xl mb-8 text-center text-gray-400 animate__animated animate__fadeIn animate__delay-1s">
+          Join the innovative event of the year! Collaborate, create, and
+          showcase your skills.
+        </p>
+
+        {/* Slider */}
+        <div className="relative w-full h-64 sm:h-96 rounded-xl overflow-hidden shadow-lg">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-700 opacity-60"></div>
+
+          {/* Background Image */}
+          <div
+            className="absolute opacity-45 inset-0 bg-cover bg-center transition-all duration-1000"
+            style={{
+              backgroundImage: `url(${eventsData[currentSlide].image})`,
+              backgroundSize: "contain", // Ensures the image covers the container
+              backgroundPosition: "center", // Centers the image within the container
+              backgroundRepeat: "no-repeat", // Prevents the image from repeating
+            }}
+          ></div>
+
+          {/* Slide Content */}
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="w-full max-w-3xl text-center px-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 animate__animated animate__fadeIn">
+                {eventsData[currentSlide].title}
+              </h2>
+              <p className="text-lg text-gray-300 mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                {eventsData[currentSlide].description}
+              </p>
+              <p className="text-lg text-gray-300 animate__animated animate__fadeIn animate__delay-2s">
+                {eventsData[currentSlide].date}
+              </p>
+            </div>
           </div>
 
-          {/* Buttons */}
-          <div className="mt-8 flex justify-center space-x-4">
-            <button className="bg-[#C2CE3B] text-black font-medium px-6 py-3 rounded-lg shadow-md hover:bg-gradient-to-l from-[#C2CE3B] to-[#60BA08] hover:text-black">
-              For organizers
+          {/* Call to Action Buttons */}
+          <div className="absolute bottom-6 w-full flex justify-center space-x-4 z-20 mb-4">
+            <button className="text-white px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full shadow-md transform hover:scale-105 transition-all">
+              Register Now
             </button>
-            <button className="bg-white border border-[#C2CE3B] font-medium px-6 py-3 rounded-lg shadow-md">
-              For participants
+            <button className="text-white px-6 py-2 bg-transparent border-2 border-white hover:bg-green-700 hover:text-white rounded-full shadow-md transform hover:scale-105 transition-all">
+              Learn More
             </button>
           </div>
+        </div>
 
-          {/* Trusted Organizations Section */}
-          <div className="mt-16">
-            <p className="text-black font-semibold uppercase text-sm tracking-widest">
-              Trusted by the world&apos;s leading organizations
-            </p>
-            <div className="bg-white">
-            
-             <div className="mt-1 flex flex-wrap justify-evenly items-center gap-8 px-1 py-5 ">
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-                alt="Microsoft"
-                className=""
-                width={50}
-                height={40}
-              />
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Logo_2013_Google.png"
-                alt="Google"
-                className=""
-                width={60}
-                height={40}
-              />
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/1200px-Meta_Platforms_Inc._logo.svg.png?20230620122121"
-                alt="Meta"
-                className=""
-                width={60}
-                height={40}
-              />
-              <Image
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png"
-                alt="AWS"
-                className=""
-                width={60}
-                height={40}
-              />
-              </div>
-          </div>
-          </div>         
+        {/* Slide Indicators */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+          {eventsData.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full bg-white cursor-pointer transition-all duration-300 ${
+                currentSlide === index
+                  ? "bg-green-500 scale-125"
+                  : "bg-opacity-50"
+              }`}
+              onClick={() => setCurrentSlide(index)}
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
-export default HackathonHero;
+export default HeroSlider;

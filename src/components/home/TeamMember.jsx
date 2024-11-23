@@ -152,23 +152,23 @@ import Turag from "@/assets/team/Nafis Iqbal Turag.jpg";
 import Shadman from "@/assets/team/Shadman Sarwar.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaLinkedin, FaTwitter   } from "react-icons/fa";
 const TeamMembers = () => {
   const founders = [
     {
       name: "Md Noushad Jahan Ramim",
       role: "Founder",
       image: Noushad,
-      linkedin: "https://www.linkedin.com/in/md-noushad-jahan-ramim-4b57372a5/", 
-      github: "https://github.com/noushad25", 
-      facebook: "https://www.facebook.com/profile.php?id=100084776900251", 
+      linkedin: "https://www.linkedin.com/in/md-noushad-jahan-ramim-4b57372a5/",
+      twitter: "https://github.com/noushad25",
+      facebook: "https://www.facebook.com/profile.php?id=100084776900251",
     },
     {
       name: "Md Y H Akash",
       role: "Founder",
       image: Akash,
       linkedin: "https://www.linkedin.com/in/mdyhakash/",
-      github: "https://github.com/mdyhakash",
+      twitter: "https://github.com/mdyhakash",
       facebook: "https://www.facebook.com/mdyhakash",
     },
   ];
@@ -179,7 +179,7 @@ const TeamMembers = () => {
       role: "Co-Founder",
       image: Atik,
       linkedin: "https://www.linkedin.com/in/atik65/",
-      github: "https://github.com/atik65",
+      twitter: "https://github.com/atik65",
       facebook: "https://www.facebook.com/dev.atik.hasan",
     },
     {
@@ -187,7 +187,7 @@ const TeamMembers = () => {
       role: "Co-Founder",
       image: Jetu,
       linkedin: "#",
-      github: "#",
+      twitter: "#",
       facebook: "https://www.facebook.com/jamil.jetu",
     },
     {
@@ -195,7 +195,7 @@ const TeamMembers = () => {
       role: "Co-Founder",
       image: Turag,
       linkedin: "#",
-      github: "#",
+      twitter: "#",
       facebook: "https://www.facebook.com/nafis.iqbal.turag",
     },
   ];
@@ -206,7 +206,7 @@ const TeamMembers = () => {
       role: "Marketing Lead",
       image: Shadman,
       linkedin: "#",
-      github: "#",
+      twitter: "#",
       facebook: "https://www.facebook.com/shadmanbigboss",
     },
     {
@@ -214,7 +214,7 @@ const TeamMembers = () => {
       role: "Marketing Lead",
       image: Pritha,
       linkedin: "#",
-      github: "#",
+      twitter: "#",
       facebook: "#",
     },
     {
@@ -222,171 +222,80 @@ const TeamMembers = () => {
       role: "Marketing Lead",
       image: Roshni,
       linkedin: "#",
-      github: "#",
+      twitter: "#",
       facebook: "#",
     },
   ];
 
+  const MemberCard = ({ member }) => (
+    <div className="bg-dark border border-green-600 shadow-lg rounded-xl p-6 text-center transition-transform duration-300 transform hover:scale-105">
+      <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full border-4 border-green-500">
+        <Image
+          src={member.image}
+          alt={member.name}
+          layout="fill"
+          objectFit="cover"
+          className="rounded-full"
+        />
+      </div>
+      <h3 className="text-xl font-bold text-gray-100">{member.name}</h3>
+      <p className="text-md text-green-400">{member.role}</p>
+      <div className="flex justify-center mt-4 space-x-4">
+        {member.linkedin && (
+          <Link
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="text-green-400 text-2xl hover:text-green-600 transition-all" />
+          </Link>
+        )}
+        {member.twitter && (
+          <Link href={member.twitter} target="_blank" rel="noopener noreferrer">
+           <FaTwitter className="text-green-400 text-2xl hover:text-green-600 transition-all" />
+          </Link>
+        )}
+        {member.facebook && (
+          <Link
+            href={member.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook className="text-green-400 text-2xl hover:text-green-600 transition-all" />
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+
   return (
-    <div className="py-12 bg-gradient-to-b from-green-100 to-blue-200">
+    <div className="py-12 bg-gradient-to-b from-dark via-gray-900 to-dark">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <h2 className="text-4xl font-bold text-gray-800 mb-12 text-center">
+        <h2 className="text-4xl font-extrabold text-green-400 mb-12 text-center">
           Meet Our Amazing Team
         </h2>
 
         {/* Founders Section */}
+        <h3 className="text-2xl font-bold text-gray-100 mb-6">Founders</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
           {founders.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-xl p-6 text-center transition-transform duration-300 transform hover:scale-105 relative group"
-            >
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-gradient-to-r from-green-400 to-blue-500">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-800">
-                {member.name}
-              </h3>
-              <p className="text-lg text-green-500">{member.role}</p>
-
-              {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
-                <Link
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-4 text-blue-600 text-5xl hover:text-blue-800"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  href={member.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-4 text-gray-900 text-5xl hover:text-gray-700"
-                >
-                  <FaGithub />
-                </Link>
-                <Link
-                  href={member.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-4 text-blue-600 text-5xl hover:text-blue-800"
-                >
-                   <FaFacebook />
-                </Link>
-              </div>
-            </div>
+            <MemberCard key={index} member={member} />
           ))}
         </div>
 
         {/* Co-Founders Section */}
+        <h3 className="text-2xl font-bold text-gray-100 mb-6">Co-Founders</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {coFounders.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-xl p-6 text-center transition-transform duration-300 transform hover:scale-105 relative group"
-            >
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-gradient-to-r from-green-400 to-blue-500">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-800">
-                {member.name}
-              </h3>
-              <p className="text-lg text-green-500">{member.role}</p>
-
-              {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
-                <Link
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  href={member.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-gray-900 text-4xl hover:text-gray-700"
-                >
-                  <FaGithub />
-                </Link>
-                <Link
-                  href={member.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
-                >
-                   <FaFacebook />
-                </Link>
-              </div>
-            </div>
+            <MemberCard key={index} member={member} />
           ))}
         </div>
 
         {/* Other Team Members Section */}
+        <h3 className="text-2xl font-bold text-gray-100 mb-6">Team Members</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {others.map((member, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-xl p-6 text-center transition-transform duration-300 transform hover:scale-105 relative group"
-            >
-              <div className="relative w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 mx-auto mb-6 overflow-hidden rounded-full border-4 border-gradient-to-r from-green-400 to-blue-500">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-full"
-                />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-800">
-                {member.name}
-              </h3>
-              <p className="text-lg text-green-500">{member.role}</p>
-
-              {/* Social Media Icons */}
-              <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-90 rounded-xl">
-                <Link
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
-                >
-                  <FaLinkedin />
-                </Link>
-                <Link
-                  href={member.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-gray-900 text-4xl hover:text-gray-700"
-                >
-                  <FaGithub />
-                </Link>
-                <Link
-                  href={member.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-3 text-blue-600 text-4xl hover:text-blue-800"
-                >
-                   <FaFacebook />
-                </Link>
-              </div>
-            </div>
+            <MemberCard key={index} member={member} />
           ))}
         </div>
       </div>
