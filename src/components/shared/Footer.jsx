@@ -228,33 +228,33 @@ const Footer = () => {
             <h2 className="text-xl font-semibold mb-4">Quick Links</h2>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
-                <Link href="/" className="hover:underline">
+                <Link href="/" className="font-semibold hover:text-green-600">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:underline">
+                <Link
+                  href="/about"
+                  className="font-semibold hover:text-green-600"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:underline">
+                <Link
+                  href="/blog"
+                  className="font-semibold hover:text-green-600"
+                >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:underline">
+                <Link
+                  href="/contact"
+                  className="font-semibold hover:text-green-600"
+                >
                   Contact
                 </Link>
-              </li>
-              <li>
-                <a
-                  href="/sitemap.xml"
-                  target="_blank"
-                  className="hover:underline"
-                >
-                  Sitemap
-                </a>
               </li>
             </ul>
           </div>
@@ -287,28 +287,28 @@ const Footer = () => {
               <Link
                 href="/"
                 aria-label="Facebook"
-                className="hover:text-gray-400"
+                className="hover:text-green-600"
               >
                 <FaFacebookF size={20} />
               </Link>
               <Link
                 href="/"
                 aria-label="Twitter"
-                className="hover:text-gray-400"
+                className="hover:text-green-600"
               >
                 <FaTwitter size={20} />
               </Link>
               <Link
                 href="/"
                 aria-label="Instagram"
-                className="hover:text-gray-400"
+                className="hover:text-green-600"
               >
                 <FaInstagram size={20} />
               </Link>
               <Link
                 href="/"
                 aria-label="LinkedIn"
-                className="hover:text-gray-400"
+                className="hover:text-green-600"
               >
                 <FaLinkedin size={20} />
               </Link>

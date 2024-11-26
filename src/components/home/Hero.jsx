@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const eventsData = [
@@ -28,7 +29,7 @@ const eventsData = [
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Change slide every 5 seconds
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % eventsData.length);
@@ -57,9 +58,9 @@ const HeroSlider = () => {
             className="absolute opacity-45 inset-0 bg-cover bg-center transition-all duration-1000"
             style={{
               backgroundImage: `url(${eventsData[currentSlide].image})`,
-              backgroundSize: "contain", // Ensures the image covers the container
-              backgroundPosition: "center", // Centers the image within the container
-              backgroundRepeat: "no-repeat", // Prevents the image from repeating
+              backgroundSize: "contain", 
+              backgroundPosition: "center", 
+              backgroundRepeat: "no-repeat", 
             }}
           ></div>
 
@@ -78,31 +79,37 @@ const HeroSlider = () => {
             </div>
           </div>
 
-          {/* Call to Action Buttons */}
-          <div className="absolute bottom-6 w-full flex justify-center space-x-4 z-20 mb-4">
-            <button className="text-white px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full shadow-md transform hover:scale-105 transition-all">
-              Register Now
-            </button>
-            <button className="text-white px-6 py-2 bg-transparent border-2 border-white hover:bg-green-700 hover:text-white rounded-full shadow-md transform hover:scale-105 transition-all">
-              Learn More
-            </button>
+          {/* Slide Indicators */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+            {eventsData.map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 rounded-full bg-white cursor-pointer transition-all duration-300 ${
+                  currentSlide === index
+                    ? "bg-green-500 scale-125"
+                    : "bg-opacity-50"
+                }`}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-          {eventsData.map((_, index) => (
-            <div
-              key={index}
-              className={`w-3 h-3 rounded-full bg-white cursor-pointer transition-all duration-300 ${
-                currentSlide === index
-                  ? "bg-green-500 scale-125"
-                  : "bg-opacity-50"
-              }`}
-              onClick={() => setCurrentSlide(index)}
-            />
-          ))}
-        </div>
+      {/* Buttons - Placed below the slider */}
+      <div className="flex justify-center space-x-4 z-20 mb-4 px-6 mt-8">
+        <button
+          onClick={() => alert("Redirecting to Registration Page")}
+          className="text-white px-6 py-2 bg-green-600 hover:bg-green-700 rounded-full shadow-md transform hover:scale-105 transition-all"
+        >
+          Register Now
+        </button>
+        <Link
+          href="/hackathon-details"
+          className="text-white px-6 py-2 bg-transparent border-2 border-white hover:bg-green-700 hover:text-white rounded-full shadow-md transform hover:scale-105 transition-all"
+        >
+          Learn More
+        </Link>
       </div>
     </div>
   );

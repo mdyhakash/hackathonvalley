@@ -345,9 +345,9 @@ const SearchBar = dynamic(() => import("./SearchBar"), { ssr: false });
 
 const headerData = [
   { id: 1, title: "Product", href: "#" },
-  { id: 2, title: "Hackathons", href: "/" },
+  { id: 2, title: "Hackathons", href: "/hackathon-details" },
   { id: 3, title: "Projects", href: "/" },
-  { id: 4, title: "Blog", href: "/category/blog" },
+  { id: 4, title: "Results", href: "/results" },
 ];
 
 const Header = () => {
