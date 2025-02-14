@@ -129,7 +129,7 @@ const ResultPage = () => {
                   key={idx}
                   className="bg-gray-900 p-4 rounded-lg text-center shadow-md"
                 >
-                  <h3 className="text-lg font-bold">{judge}</h3>
+                  <h3 className="text-md font-bold">{judge}</h3>
                   <p className="text-gray-300 text-sm">Expert in AI and Tech</p>
                 </div>
               )
