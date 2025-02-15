@@ -76,7 +76,7 @@ const AllResultsPage = () => {
               {allTeams.map((team, index) => (
                 <tr
                   key={index}
-                  className="bg-gray-900 hover:bg-gray-700 transition-colors duration-300"
+                  className="bg-gray-900 hover:bg-gray-600 transition-colors duration-300"
                 >
                   {/* Position */}
                   <td className="py-4 px-6">
